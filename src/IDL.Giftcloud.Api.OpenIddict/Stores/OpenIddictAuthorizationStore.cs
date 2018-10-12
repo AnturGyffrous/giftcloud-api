@@ -10,119 +10,104 @@ using OpenIddict.Abstractions;
 namespace IDL.Giftcloud.Api.OpenIddict.Stores
 {
     /// <inheritdoc />
-    public class OpenIddictAuthorizationStore : OpenIddictAuthorizationStore<OpenIddictAuthorization, Guid>
-    {
-    }
-
-    /// <inheritdoc />
-    public class OpenIddictAuthorizationStore<TKey> : OpenIddictAuthorizationStore<OpenIddictAuthorization<TKey>, TKey>
-        where TKey : IEquatable<TKey>
-    {
-    }
-
-    /// <inheritdoc />
-    /// <typeparam name="TAuthorization">The type of the Entity Framework database context.</typeparam>
-    /// <typeparam name="TKey">The type of the entity primary keys.</typeparam>
-    public class OpenIddictAuthorizationStore<TAuthorization, TKey> : IOpenIddictAuthorizationStore<TAuthorization>
-        where TAuthorization : OpenIddictAuthorization<TKey>
-        where TKey : IEquatable<TKey>
+    public class OpenIddictAuthorizationStore : IOpenIddictAuthorizationStore<OpenIddictAuthorization>
     {
         public Task<long> CountAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<long> CountAsync<TResult>(Func<IQueryable<TAuthorization>, IQueryable<TResult>> query, CancellationToken cancellationToken)
+        public Task<long> CountAsync<TResult>(Func<IQueryable<OpenIddictAuthorization>, IQueryable<TResult>> query, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task CreateAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public Task CreateAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public Task DeleteAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TAuthorization>> FindAsync(string subject, string client, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictAuthorization>> FindAsync(string subject, string client, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TAuthorization>> FindAsync(string subject, string client, string status, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictAuthorization>> FindAsync(string subject, string client, string status, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TAuthorization>> FindAsync(string subject, string client, string status, string type, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictAuthorization>> FindAsync(string subject, string client, string status, string type, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TAuthorization> FindByIdAsync(string identifier, CancellationToken cancellationToken)
+        public Task<OpenIddictAuthorization> FindByIdAsync(string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TAuthorization>> FindBySubjectAsync(string subject, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictAuthorization>> FindBySubjectAsync(string subject, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetApplicationIdAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public ValueTask<string> GetApplicationIdAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResult> GetAsync<TState, TResult>(Func<IQueryable<TAuthorization>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
+        public Task<TResult> GetAsync<TState, TResult>(Func<IQueryable<OpenIddictAuthorization>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetIdAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public ValueTask<string> GetIdAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<JObject> GetPropertiesAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public ValueTask<JObject> GetPropertiesAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<ImmutableArray<string>> GetScopesAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public ValueTask<ImmutableArray<string>> GetScopesAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetStatusAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public ValueTask<string> GetStatusAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetSubjectAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public ValueTask<string> GetSubjectAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetTypeAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public ValueTask<string> GetTypeAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<TAuthorization> InstantiateAsync(CancellationToken cancellationToken)
+        public ValueTask<OpenIddictAuthorization> InstantiateAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TAuthorization>> ListAsync(int? count, int? offset, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictAuthorization>> ListAsync(int? count, int? offset, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TResult>> ListAsync<TState, TResult>(Func<IQueryable<TAuthorization>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
+        public Task<ImmutableArray<TResult>> ListAsync<TState, TResult>(Func<IQueryable<OpenIddictAuthorization>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
@@ -132,37 +117,38 @@ namespace IDL.Giftcloud.Api.OpenIddict.Stores
             throw new NotImplementedException();
         }
 
-        public Task SetApplicationIdAsync(TAuthorization authorization, string identifier, CancellationToken cancellationToken)
+        public Task SetApplicationIdAsync(OpenIddictAuthorization authorization, string identifier,
+            CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetPropertiesAsync(TAuthorization authorization, JObject properties, CancellationToken cancellationToken)
+        public Task SetPropertiesAsync(OpenIddictAuthorization authorization, JObject properties, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetScopesAsync(TAuthorization authorization, ImmutableArray<string> scopes, CancellationToken cancellationToken)
+        public Task SetScopesAsync(OpenIddictAuthorization authorization, ImmutableArray<string> scopes, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetStatusAsync(TAuthorization authorization, string status, CancellationToken cancellationToken)
+        public Task SetStatusAsync(OpenIddictAuthorization authorization, string status, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetSubjectAsync(TAuthorization authorization, string subject, CancellationToken cancellationToken)
+        public Task SetSubjectAsync(OpenIddictAuthorization authorization, string subject, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetTypeAsync(TAuthorization authorization, string type, CancellationToken cancellationToken)
+        public Task SetTypeAsync(OpenIddictAuthorization authorization, string type, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(TAuthorization authorization, CancellationToken cancellationToken)
+        public Task UpdateAsync(OpenIddictAuthorization authorization, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

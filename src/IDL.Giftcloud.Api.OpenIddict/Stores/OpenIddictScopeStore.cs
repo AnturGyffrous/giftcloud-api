@@ -10,139 +10,124 @@ using OpenIddict.Abstractions;
 namespace IDL.Giftcloud.Api.OpenIddict.Stores
 {
     /// <inheritdoc />
-    public class OpenIddictScopeStore : OpenIddictScopeStore<OpenIddictScope<Guid>, Guid>
-    {
-    }
-
-    /// <inheritdoc />
-    public class OpenIddictScopeStore<TKey> : OpenIddictScopeStore<OpenIddictScope<TKey>, TKey>
-        where TKey : IEquatable<TKey>
-    {
-    }
-
-    /// <inheritdoc />
-    /// <typeparam name="TScope">The type of the Scope entity.</typeparam>
-    /// <typeparam name="TKey">The type of the entity primary keys.</typeparam>
-    public class OpenIddictScopeStore<TScope, TKey> : IOpenIddictScopeStore<TScope>
-        where TScope : OpenIddictScope<TKey>
-        where TKey : IEquatable<TKey>
+    public class OpenIddictScopeStore : IOpenIddictScopeStore<OpenIddictScope>
     {
         public Task<long> CountAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<long> CountAsync<TResult>(Func<IQueryable<TScope>, IQueryable<TResult>> query, CancellationToken cancellationToken)
+        public Task<long> CountAsync<TResult>(Func<IQueryable<OpenIddictScope>, IQueryable<TResult>> query, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task CreateAsync(TScope scope, CancellationToken cancellationToken)
+        public Task CreateAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(TScope scope, CancellationToken cancellationToken)
+        public Task DeleteAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TScope> FindByIdAsync(string identifier, CancellationToken cancellationToken)
+        public Task<OpenIddictScope> FindByIdAsync(string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TScope> FindByNameAsync(string name, CancellationToken cancellationToken)
+        public Task<OpenIddictScope> FindByNameAsync(string name, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TScope>> FindByNamesAsync(ImmutableArray<string> names, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictScope>> FindByNamesAsync(ImmutableArray<string> names, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TScope>> FindByResourceAsync(string resource, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictScope>> FindByResourceAsync(string resource, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResult> GetAsync<TState, TResult>(Func<IQueryable<TScope>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
+        public Task<TResult> GetAsync<TState, TResult>(Func<IQueryable<OpenIddictScope>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetDescriptionAsync(TScope scope, CancellationToken cancellationToken)
+        public ValueTask<string> GetDescriptionAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetDisplayNameAsync(TScope scope, CancellationToken cancellationToken)
+        public ValueTask<string> GetDisplayNameAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetIdAsync(TScope scope, CancellationToken cancellationToken)
+        public ValueTask<string> GetIdAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetNameAsync(TScope scope, CancellationToken cancellationToken)
+        public ValueTask<string> GetNameAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<JObject> GetPropertiesAsync(TScope scope, CancellationToken cancellationToken)
+        public ValueTask<JObject> GetPropertiesAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<ImmutableArray<string>> GetResourcesAsync(TScope scope, CancellationToken cancellationToken)
+        public ValueTask<ImmutableArray<string>> GetResourcesAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<TScope> InstantiateAsync(CancellationToken cancellationToken)
+        public ValueTask<OpenIddictScope> InstantiateAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TScope>> ListAsync(int? count, int? offset, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictScope>> ListAsync(int? count, int? offset, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TResult>> ListAsync<TState, TResult>(Func<IQueryable<TScope>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
+        public Task<ImmutableArray<TResult>> ListAsync<TState, TResult>(Func<IQueryable<OpenIddictScope>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetDescriptionAsync(TScope scope, string description, CancellationToken cancellationToken)
+        public Task SetDescriptionAsync(OpenIddictScope scope, string description, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetDisplayNameAsync(TScope scope, string name, CancellationToken cancellationToken)
+        public Task SetDisplayNameAsync(OpenIddictScope scope, string name, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetNameAsync(TScope scope, string name, CancellationToken cancellationToken)
+        public Task SetNameAsync(OpenIddictScope scope, string name, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetPropertiesAsync(TScope scope, JObject properties, CancellationToken cancellationToken)
+        public Task SetPropertiesAsync(OpenIddictScope scope, JObject properties, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetResourcesAsync(TScope scope, ImmutableArray<string> resources, CancellationToken cancellationToken)
+        public Task SetResourcesAsync(OpenIddictScope scope, ImmutableArray<string> resources, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(TScope scope, CancellationToken cancellationToken)
+        public Task UpdateAsync(OpenIddictScope scope, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

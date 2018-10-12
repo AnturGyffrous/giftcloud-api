@@ -2,16 +2,10 @@
 
 namespace IDL.Giftcloud.Api.OpenIddict.Models
 {
-    /// <inheritdoc />
-    public class OpenIddictApplication : OpenIddictApplication<Guid>
-    {
-    }
-
     /// <summary>
     /// Represents an OpenIddict application.
     /// </summary>
-    /// <typeparam name="TKey">The type of the entity primary key.</typeparam>
-    public class OpenIddictApplication<TKey> where TKey : IEquatable<TKey>
+    public class OpenIddictApplication
     {
         /// <summary>
         /// Gets or sets the client identifier
@@ -47,7 +41,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Models
         /// Gets or sets the unique identifier
         /// associated with the current application.
         /// </summary>
-        public virtual TKey Id { get; set; }
+        public virtual Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the permissions associated with the current application.

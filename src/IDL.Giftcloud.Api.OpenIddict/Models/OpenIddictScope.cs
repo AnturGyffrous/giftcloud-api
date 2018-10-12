@@ -2,16 +2,10 @@
 
 namespace IDL.Giftcloud.Api.OpenIddict.Models
 {
-    /// <inheritdoc />
-    public class OpenIddictScope : OpenIddictScope<Guid>
-    {
-    }
-
     /// <summary>
     /// Represents an OpenIddict scope.
     /// </summary>
-    /// <typeparam name="TKey">The type of the entity primary key.</typeparam>
-    public class OpenIddictScope<TKey> where TKey : IEquatable<TKey>
+    public class OpenIddictScope
     {
         /// <summary>
         /// Gets or sets the concurrency token.
@@ -34,7 +28,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Models
         /// Gets or sets the unique identifier
         /// associated with the current scope.
         /// </summary>
-        public virtual TKey Id { get; set; }
+        public virtual Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the unique name

@@ -29,8 +29,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
 
             var type = _cache.GetOrAdd(typeof(TScope), key =>
             {
-                var root = key.FindGenericBaseType(typeof(OpenIddictScope<>));
-                if (root == null)
+                if (!typeof(OpenIddictScope).IsAssignableFrom(typeof(TScope)))
                 {
                     throw new InvalidOperationException(new StringBuilder()
                         .AppendLine("The specified scope type is not compatible with the Giftcloud stores.")
@@ -41,9 +40,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
                 }
 
 
-                return typeof(OpenIddictScopeStore<,>).MakeGenericType(
-                    /* TScope: */ key,
-                    /* TKey: */ root.GenericTypeArguments[0]);
+                return typeof(OpenIddictScopeStore);
             });
 
             return (IOpenIddictScopeStore<TScope>)_provider.GetRequiredService(type);

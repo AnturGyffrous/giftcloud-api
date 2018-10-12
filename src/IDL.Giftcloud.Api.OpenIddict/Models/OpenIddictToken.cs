@@ -2,34 +2,20 @@
 
 namespace IDL.Giftcloud.Api.OpenIddict.Models
 {
-    /// <inheritdoc />
-    public class OpenIddictToken : OpenIddictToken<Guid, OpenIddictApplication, OpenIddictAuthorization>
-    {
-    }
-
-    /// <inheritdoc />
-    public class OpenIddictToken<TKey> : OpenIddictToken<TKey, OpenIddictApplication<TKey>, OpenIddictAuthorization<TKey>>
-        where TKey : IEquatable<TKey>
-    {
-    }
-
     /// <summary>
     /// Represents an OpenIddict token.
     /// </summary>
-    /// <typeparam name="TKey">The type of the entity primary key.</typeparam>
-    /// <typeparam name="TApplication">The type of the Application entity.</typeparam>
-    /// <typeparam name="TAuthorization">The type of the Authorization entity.</typeparam>
-    public class OpenIddictToken<TKey, TApplication, TAuthorization> where TKey : IEquatable<TKey>
+    public class OpenIddictToken
     {
         /// <summary>
         /// Gets or sets the application associated with the current token.
         /// </summary>
-        public virtual TApplication Application { get; set; }
+        public virtual Guid ApplicationId { get; set; }
 
         /// <summary>
         /// Gets or sets the authorization associated with the current token.
         /// </summary>
-        public virtual TAuthorization Authorization { get; set; }
+        public virtual Guid AuthorizationId { get; set; }
 
         /// <summary>
         /// Gets or sets the concurrency token.
@@ -52,7 +38,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Models
         /// Gets or sets the unique identifier
         /// associated with the current token.
         /// </summary>
-        public virtual TKey Id { get; set; }
+        public virtual Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the payload of the current token, if applicable.

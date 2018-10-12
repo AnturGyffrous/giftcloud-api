@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IDL.Giftcloud.Api.Models;
 using IDL.Giftcloud.Api.OpenIddict.Models;
 using IDL.Giftcloud.Api.OpenIddict.Resolvers;
 using IDL.Giftcloud.Api.OpenIddict.Stores;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using OpenIddict.Validation;
 
 namespace IDL.Giftcloud.Api
 {
@@ -20,6 +23,18 @@ namespace IDL.Giftcloud.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //services.AddAuthorization(options => { });
+
+            //services.AddAuthentication(options =>
+            //{
+            //    //options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+            //    //options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+            //    //options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+            //});
+
+            services.AddIdentity<GiftcloudUser, IdentityRole>()
+                .AddDefaultTokenProviders();
 
             services.AddOpenIddict()
                 .AddCore(options =>
@@ -34,10 +49,10 @@ namespace IDL.Giftcloud.Api
                         .ReplaceScopeStoreResolver<OpenIddictScopeStoreResolver>()
                         .ReplaceTokenStoreResolver<OpenIddictTokenStoreResolver>();
 
-                    options.Services.TryAddScoped(typeof(OpenIddictApplicationStore<,>));
-                    options.Services.TryAddScoped(typeof(OpenIddictAuthorizationStore<,>));
-                    options.Services.TryAddScoped(typeof(OpenIddictScopeStore<,>));
-                    options.Services.TryAddScoped(typeof(OpenIddictTokenStore<,>));
+                    options.Services.TryAddScoped(typeof(OpenIddictApplicationStore));
+                    options.Services.TryAddScoped(typeof(OpenIddictAuthorizationStore));
+                    options.Services.TryAddScoped(typeof(OpenIddictScopeStore));
+                    options.Services.TryAddScoped(typeof(OpenIddictTokenStore));
                 })
                 .AddServer(options =>
                 {

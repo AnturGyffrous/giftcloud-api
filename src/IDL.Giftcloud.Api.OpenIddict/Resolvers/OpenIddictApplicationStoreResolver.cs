@@ -29,8 +29,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
 
             var type = _cache.GetOrAdd(typeof(TApplication), key =>
             {
-                var root = key.FindGenericBaseType(typeof(OpenIddictApplication<>));
-                if (root == null)
+                if (!typeof(OpenIddictApplication).IsAssignableFrom(typeof(TApplication)))
                 {
                     throw new InvalidOperationException(new StringBuilder()
                         .AppendLine("The specified application type is not compatible with the Giftcloud stores.")
@@ -40,9 +39,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
                         .ToString());
                 }
 
-                return typeof(OpenIddictApplicationStore<,>).MakeGenericType(
-                    /* TApplication: */ key,
-                    /* TKey: */ root.GenericTypeArguments[0]);
+                return typeof(OpenIddictApplicationStore);
             });
 
             return (IOpenIddictApplicationStore<TApplication>)_provider.GetRequiredService(type);

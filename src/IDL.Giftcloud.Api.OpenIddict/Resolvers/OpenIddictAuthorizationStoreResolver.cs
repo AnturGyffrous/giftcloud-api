@@ -29,8 +29,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
 
             var type = _cache.GetOrAdd(typeof(TAuthorization), key =>
             {
-                var root = key.FindGenericBaseType(typeof(OpenIddictAuthorization<,>));
-                if (root == null)
+                if (!typeof(OpenIddictAuthorization).IsAssignableFrom(typeof(TAuthorization)))
                 {
                     throw new InvalidOperationException(new StringBuilder()
                         .AppendLine("The specified authorization type is not compatible with the Giftcloud stores.")
@@ -40,9 +39,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
                         .ToString());
                 }
 
-                return typeof(OpenIddictAuthorizationStore<,>).MakeGenericType(
-                    /* TAuthorization: */ key,
-                    /* TKey: */ root.GenericTypeArguments[0]);
+                return typeof(OpenIddictAuthorizationStore);
             });
 
             return (IOpenIddictAuthorizationStore<TAuthorization>)_provider.GetRequiredService(type);

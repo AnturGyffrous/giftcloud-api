@@ -29,8 +29,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
 
             var type = _cache.GetOrAdd(typeof(TToken), key =>
             {
-                var root = key.FindGenericBaseType(typeof(OpenIddictToken<,,>));
-                if (root == null)
+                if (!typeof(OpenIddictToken).IsAssignableFrom(typeof(TToken)))
                 {
                     throw new InvalidOperationException(new StringBuilder()
                         .AppendLine("The specified token type is not compatible with the Giftcloud stores.")
@@ -40,9 +39,7 @@ namespace IDL.Giftcloud.Api.OpenIddict.Resolvers
                         .ToString());
                 }
 
-                return typeof(OpenIddictTokenStore<,>).MakeGenericType(
-                    /* TToken: */ key,
-                    /* TKey: */ root.GenericTypeArguments[0]);
+                return typeof(OpenIddictTokenStore);
             });
 
             return (IOpenIddictTokenStore<TToken>)_provider.GetRequiredService(type);

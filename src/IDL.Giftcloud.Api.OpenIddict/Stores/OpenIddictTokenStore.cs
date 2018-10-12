@@ -10,139 +10,124 @@ using OpenIddict.Abstractions;
 namespace IDL.Giftcloud.Api.OpenIddict.Stores
 {
     /// <inheritdoc />
-    public class OpenIddictTokenStore : OpenIddictTokenStore<OpenIddictToken<Guid>, Guid>
-    {
-    }
-
-    /// <inheritdoc />
-    public class OpenIddictTokenStore<TKey> : OpenIddictTokenStore<OpenIddictToken<TKey>, TKey>
-        where TKey : IEquatable<TKey>
-    {
-    }
-
-    /// <inheritdoc />
-    /// <typeparam name="TToken">The type of the Token entity.</typeparam>
-    /// <typeparam name="TKey">The type of the entity primary keys.</typeparam>
-    public class OpenIddictTokenStore<TToken, TKey> : IOpenIddictTokenStore<TToken>
-        where TToken : OpenIddictToken<TKey>
-        where TKey : IEquatable<TKey>
+    public class OpenIddictTokenStore : IOpenIddictTokenStore<OpenIddictToken>
     {
         public Task<long> CountAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<long> CountAsync<TResult>(Func<IQueryable<TToken>, IQueryable<TResult>> query, CancellationToken cancellationToken)
+        public Task<long> CountAsync<TResult>(Func<IQueryable<OpenIddictToken>, IQueryable<TResult>> query, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task CreateAsync(TToken token, CancellationToken cancellationToken)
+        public Task CreateAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(TToken token, CancellationToken cancellationToken)
+        public Task DeleteAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TToken>> FindByApplicationIdAsync(string identifier, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictToken>> FindByApplicationIdAsync(string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TToken>> FindByAuthorizationIdAsync(string identifier, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictToken>> FindByAuthorizationIdAsync(string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TToken> FindByIdAsync(string identifier, CancellationToken cancellationToken)
+        public Task<OpenIddictToken> FindByIdAsync(string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TToken> FindByReferenceIdAsync(string identifier, CancellationToken cancellationToken)
+        public Task<OpenIddictToken> FindByReferenceIdAsync(string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TToken>> FindBySubjectAsync(string subject, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictToken>> FindBySubjectAsync(string subject, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetApplicationIdAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetApplicationIdAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResult> GetAsync<TState, TResult>(Func<IQueryable<TToken>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
+        public Task<TResult> GetAsync<TState, TResult>(Func<IQueryable<OpenIddictToken>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetAuthorizationIdAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetAuthorizationIdAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<DateTimeOffset?> GetCreationDateAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<DateTimeOffset?> GetCreationDateAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<DateTimeOffset?> GetExpirationDateAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<DateTimeOffset?> GetExpirationDateAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetIdAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetIdAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetPayloadAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetPayloadAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<JObject> GetPropertiesAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<JObject> GetPropertiesAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetReferenceIdAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetReferenceIdAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetStatusAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetStatusAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetSubjectAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetSubjectAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<string> GetTokenTypeAsync(TToken token, CancellationToken cancellationToken)
+        public ValueTask<string> GetTokenTypeAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public ValueTask<TToken> InstantiateAsync(CancellationToken cancellationToken)
+        public ValueTask<OpenIddictToken> InstantiateAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TToken>> ListAsync(int? count, int? offset, CancellationToken cancellationToken)
+        public Task<ImmutableArray<OpenIddictToken>> ListAsync(int? count, int? offset, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ImmutableArray<TResult>> ListAsync<TState, TResult>(Func<IQueryable<TToken>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
+        public Task<ImmutableArray<TResult>> ListAsync<TState, TResult>(Func<IQueryable<OpenIddictToken>, TState, IQueryable<TResult>> query, TState state, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
@@ -152,57 +137,57 @@ namespace IDL.Giftcloud.Api.OpenIddict.Stores
             throw new NotImplementedException();
         }
 
-        public Task SetApplicationIdAsync(TToken token, string identifier, CancellationToken cancellationToken)
+        public Task SetApplicationIdAsync(OpenIddictToken token, string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetAuthorizationIdAsync(TToken token, string identifier, CancellationToken cancellationToken)
+        public Task SetAuthorizationIdAsync(OpenIddictToken token, string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetCreationDateAsync(TToken token, DateTimeOffset? date, CancellationToken cancellationToken)
+        public Task SetCreationDateAsync(OpenIddictToken token, DateTimeOffset? date, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetExpirationDateAsync(TToken token, DateTimeOffset? date, CancellationToken cancellationToken)
+        public Task SetExpirationDateAsync(OpenIddictToken token, DateTimeOffset? date, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetPayloadAsync(TToken token, string payload, CancellationToken cancellationToken)
+        public Task SetPayloadAsync(OpenIddictToken token, string payload, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetPropertiesAsync(TToken token, JObject properties, CancellationToken cancellationToken)
+        public Task SetPropertiesAsync(OpenIddictToken token, JObject properties, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetReferenceIdAsync(TToken token, string identifier, CancellationToken cancellationToken)
+        public Task SetReferenceIdAsync(OpenIddictToken token, string identifier, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetStatusAsync(TToken token, string status, CancellationToken cancellationToken)
+        public Task SetStatusAsync(OpenIddictToken token, string status, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetSubjectAsync(TToken token, string subject, CancellationToken cancellationToken)
+        public Task SetSubjectAsync(OpenIddictToken token, string subject, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task SetTokenTypeAsync(TToken token, string type, CancellationToken cancellationToken)
+        public Task SetTokenTypeAsync(OpenIddictToken token, string type, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(TToken token, CancellationToken cancellationToken)
+        public Task UpdateAsync(OpenIddictToken token, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
