@@ -1,0 +1,38 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Transform" : "AWS::Serverless-2016-10-31",
+  "Description" : "An AWS Serverless Application that uses the ASP.NET Core framework running in Amazon Lambda.",
+  "Resources" : {
+    "GiftcloudAdministrationFunction" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties" : {
+        "Handler" : "IDL.Giftcloud.Api.Administration::IDL.Giftcloud.Api.Administration.LambdaEntryPoint::FunctionHandlerAsync",
+        "Runtime" : "dotnetcore2.1",
+        "MemorySize": 256,
+        "Timeout": 10,
+        "Policies": [ "AWSLambdaExecute" ],
+		"KmsKeyArn" : "arn:aws:kms:eu-west-2:513017884690:key/bc08c3d8-1298-429f-a7e7-64064820bf16",
+        "Environment" : {
+          "Variables" : {
+            "SqlConnectionString" : "abc123"
+          }
+        },
+        "Events": {
+          "PutResource": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/{proxy+}",
+              "Method": "ANY"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Outputs" : {
+    "ApiUrl" : {
+      "Description" : "API endpoint URL for Giftcloud Administration Prod environment.",
+      "Value" : { "Fn::Sub" : "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/" }
+    }
+  }
+}

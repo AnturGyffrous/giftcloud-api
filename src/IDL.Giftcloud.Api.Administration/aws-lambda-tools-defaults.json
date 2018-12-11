@@ -1,0 +1,10 @@
+
+{
+    "region" : "eu-west-2",
+    "profile" : "gctest",
+    "configuration" : "Release",
+    "framework"     : "netcoreapp2.1",
+    "s3-bucket"     : "gc-deployment-dev",
+    "template"      : "serverless.template",
+    "stack-name"    : "giftcloud-administration-stack"
+}
